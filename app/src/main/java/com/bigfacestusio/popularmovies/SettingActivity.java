@@ -15,6 +15,7 @@ public class SettingActivity extends PreferenceActivity implements Preference.On
         addPreferencesFromResource(R.xml.pref_general);
         Preference prefSortBy = findPreference(getString(R.string.pref_sortby_key));
         prefSortBy.setOnPreferenceChangeListener(this);
+
         onPreferenceChange(prefSortBy, PreferenceManager.getDefaultSharedPreferences(prefSortBy.getContext()).getString(prefSortBy.getKey(), ""));
     }
 

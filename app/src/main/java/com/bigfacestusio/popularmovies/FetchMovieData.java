@@ -113,6 +113,7 @@ public class FetchMovieData extends AsyncTask<ArrayAdapter, Void, Vector<Movie>>
 
     /**
      * Paring JSON String
+     *
      * @param jsonMovieStr
      * @return a Vector that holds all Movie objects
      * @throws JSONException
@@ -146,13 +147,16 @@ public class FetchMovieData extends AsyncTask<ArrayAdapter, Void, Vector<Movie>>
 
     /**
      * Update UI once doInBackground() is done
+     *
      * @param allMovies
      */
     @Override
     protected void onPostExecute(Vector<Movie> allMovies) {
-        if (allMovies.size() > 0) {
-            mArrayAdapter.clear();
-            mArrayAdapter.addAll(allMovies);
+        if (allMovies != null) {
+            if (allMovies.size() > 0) {
+                mArrayAdapter.clear();
+                mArrayAdapter.addAll(allMovies);
+            }
         }
     }
 

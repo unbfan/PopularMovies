@@ -1,6 +1,9 @@
 package com.bigfacestusio.popularmovies;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -57,8 +61,23 @@ public class MainActivityFragment extends Fragment {
      * Run data query and update UI
      */
     private void updateMovieData() {
-        FetchMovieData fm = new FetchMovieData();
-        fm.execute(mGridViewAdapter);
+        if (isConnected()) {
+            FetchMovieData fm = new FetchMovieData();
+            fm.execute(mGridViewAdapter);
+        }
+        else
+            Toast.makeText(getContext(), getContext().getResources().getText(R.string.msg_no_internet_connection), Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * http://developer.android.com/training/monitoring-device-state/connectivity-monitoring.html
+     * @return
+     */
+    private boolean isConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+        return isConnected;
     }
 
 }//End of class
