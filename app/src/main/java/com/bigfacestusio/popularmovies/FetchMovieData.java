@@ -22,6 +22,12 @@ import java.util.Vector;
 
 public class FetchMovieData extends AsyncTask<ArrayAdapter, Void, Vector<Movie>> {
     private static final String LOG_TAG = FetchMovieData.class.getSimpleName();
+
+
+    //Add the movie db API key here...
+    public static final String API_KEY_THEMOVIEDB = "xxxxxx";
+
+
     private ArrayAdapter mArrayAdapter;
 
     @Override
@@ -46,7 +52,7 @@ public class FetchMovieData extends AsyncTask<ArrayAdapter, Void, Vector<Movie>>
             final String SORTBY_PARAM = "sort_by";
 
             Uri buildUri = Uri.parse(MOVIE_BASE_URL).buildUpon()
-                    .appendQueryParameter(APPID_PARAM, "7270647d5fdd0d62866171c01325d95e")
+                    .appendQueryParameter(APPID_PARAM, API_KEY_THEMOVIEDB)
                     .appendQueryParameter(SORTBY_PARAM, sortbyStr)
                     .build();
 
