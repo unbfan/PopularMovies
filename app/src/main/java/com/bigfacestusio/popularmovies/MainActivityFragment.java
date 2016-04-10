@@ -39,11 +39,8 @@ public class MainActivityFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Movie m = (Movie) parent.getItemAtPosition(position);
                 Intent detailIntent = new Intent(getContext(), DetailActivity.class);
-                detailIntent.putExtra(Movie.KEY_POSTER_PATH, m.getPosterImagePath());
-                detailIntent.putExtra(Movie.KEY_TITLE, m.getTitle());
-                detailIntent.putExtra(Movie.KEY_OVERVIEW, m.getOverview());
-                detailIntent.putExtra(Movie.KEY_VOTE_AVERAGE, m.getVoteAverage());
-                detailIntent.putExtra(Movie.KEY_RELEASE_DATE, m.getReleaseDate());
+                detailIntent.putExtra(Movie.KEY_MID, m);
+
                 startActivity(detailIntent);
             }
         });

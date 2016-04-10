@@ -25,7 +25,7 @@ public class FetchMovieData extends AsyncTask<ArrayAdapter, Void, Vector<Movie>>
 
 
     //Add the movie db API key here...
-    public static final String API_KEY_THEMOVIEDB = "xxxxxx";
+    public static final String API_KEY_THEMOVIEDB = "7270647d5fdd0d62866171c01325d95e";
 
 
     private ArrayAdapter mArrayAdapter;
@@ -130,7 +130,7 @@ public class FetchMovieData extends AsyncTask<ArrayAdapter, Void, Vector<Movie>>
             String poster_path = movie.getString(Movie.KEY_POSTER_PATH); // "poster_path": "\/w93GAiq860UjmgR6tU9h2T24vaV.jpg",
             String overview = movie.getString(Movie.KEY_OVERVIEW); //"overview": "With the nation of Panem in a full scale war, Katniss confronts President Snow in the final showdown. Teamed with a group of her closest friends \u2013 including Gale, Finnick, and Peeta \u2013 Katniss goes off on a mission with the unit from District 13 as they risk their lives to stage an assassination attempt on President Snow who has become increasingly obsessed with destroying her. The mortal traps, enemies, and moral choices that await Katniss will challenge her more than any arena she faced in The Hunger Games.",
             String release_date = movie.getString(Movie.KEY_RELEASE_DATE);//"release_date": "2015-11-18",
-            String id = movie.getString(Movie.KEY_ID);//"id": 131634,
+            String id = movie.getString(Movie.KEY_MID);//"id": 131634,
             String original_title = movie.getString(Movie.KEY_ORIGINAL_TITLE);//"original_title": "The Hunger Games: Mockingjay - Part 2",
             String title = movie.getString(Movie.KEY_TITLE);//"title": "The Hunger Games: Mockingjay - Part 2",
             String backdrop_path = movie.getString(Movie.KEY_BACKDROP_PATH);//"backdrop_path": "\/qjn3fzCAHGfl0CzeUlFbjrsmu4c.jpg",

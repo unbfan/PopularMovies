@@ -13,13 +13,14 @@
     <GridView
         android:id="@+id/movie_gridview"
         android:minHeight="?android:attr/listPreferredItemHeight"
-        android:padding="2dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
-        android:columnWidth="130dp" />
+
+        android:listSelector="@null"
+        />
 
 
 

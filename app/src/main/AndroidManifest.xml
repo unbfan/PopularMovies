@@ -34,6 +34,11 @@
             android:name=".SettingActivity"
             android:label="@string/title_activity_preference"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <provider
+            android:name=".data.MovieContentProvider"
+            android:authorities="com.bigfacestudio.movies.app"
+            android:exported="false"
+            android:syncable="true"/>
     </application>
 
 </manifest>
