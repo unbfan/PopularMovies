@@ -25,7 +25,7 @@ public class FetchMovieData extends AsyncTask<ArrayAdapter, Void, Vector<Movie>>
 
 
     //Add the movie db API key here...
-    public static final String API_KEY_THEMOVIEDB = "7270647d5fdd0d62866171c01325d95e";
+    public static final String API_KEY_THEMOVIEDB = "";
 
 
     private ArrayAdapter mArrayAdapter;
