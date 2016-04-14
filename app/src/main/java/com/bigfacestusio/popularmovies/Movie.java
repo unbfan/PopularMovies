@@ -111,6 +111,25 @@ public class Movie implements Parcelable {
     }
 
 
+    public Movie(String mId,
+                 String title,
+                 String poster_path,
+                 String overview,
+                 String release_date,
+                 String popularity,
+                 String vote_average
+    ) {
+        this.poster_path = poster_path;
+        this.overview = overview;
+        this.release_date = release_date;
+        this.mId = mId;
+        this.title = title;
+        this.popularity = popularity;
+        this.vote_average = vote_average;
+
+    }
+
+
     public String getPosterImagePath() {
         return BASE_URL_MOVICE_POSTER + poster_path;
     }

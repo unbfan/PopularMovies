@@ -22,8 +22,18 @@ public class MovieContract {
         public static final String COL_RELEASE_DATE = "release_date";
         public static final String COL_POPULARITY = "popularity";
         public static final String COL_VOTE_AVERAGE = "vote_average";
-        public static final String COL_IS_FAVORITE = "is_Favorite";
-        public static final String COL_TRAILERS = "trailers";
+//        public static final String COL_IS_FAVORITE = "is_Favorite";
+//        public static final String COL_TRAILERS = "trailers";
+
+        //_id is at column index 0
+        public static final int COL_I_MID = 1;
+        public static final int COL_I_TITLE = 2;
+        public static final int COL_I_POSTER_PATH = 3;
+        public static final int COL_I_OVERVIEW = 4;
+        public static final int COL_I_RELEASE_DATE = 5;
+        public static final int COL_I_POPULARITY = 6;
+        public static final int COL_I_VOTE_AVERAGE = 7;
+
 
         // create content uri
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(TABLE_NAME).build();

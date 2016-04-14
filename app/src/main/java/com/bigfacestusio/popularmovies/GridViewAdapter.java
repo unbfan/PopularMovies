@@ -29,6 +29,7 @@ public class GridViewAdapter extends ArrayAdapter<Movie> {
 
     /**
      * Updates grid data and refresh grid items.
+     *
      * @param mGridData
      */
     public void setGridData(ArrayList<Movie> mGridData) {
@@ -52,7 +53,7 @@ public class GridViewAdapter extends ArrayAdapter<Movie> {
             holder = (ViewHolder) row.getTag();
         }
 
-        Movie m = (Movie)mGridData.get(position);
+        Movie m = (Movie) mGridData.get(position);
         holder.titleTextView.setText(m.getTitle()); // set movice title
         Picasso.with(mContext).load(m.getPosterImagePath()).into(holder.imageView); //set movie poster
         return row;

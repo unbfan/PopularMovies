@@ -20,24 +20,19 @@ import java.util.Vector;
 
 public class FetchMovieTrailerAndReview extends AsyncTask<String, Void, Void> {
     private static final String LOG_TAG = FetchMovieData.class.getSimpleName();
+    public static final String API_KEY_THEMOVIEDB = FetchMovieData.API_KEY_THEMOVIEDB;
 
-    private DetailActivityFragment detailActivityFragment;
+    private DetailFragment detailFragment;
     private Movie movie;
-    private String movieId;
 
+    private String movieId;
     private Vector<String> trailers;
     private Vector<String> reviews;
 
-
-    public FetchMovieTrailerAndReview(DetailActivityFragment daf, Movie movie) {
-        this.detailActivityFragment = daf;
+    public FetchMovieTrailerAndReview(DetailFragment daf, Movie movie) {
+        this.detailFragment = daf;
         this.movie = movie;
-
     }
-
-    public static final String API_KEY_THEMOVIEDB = FetchMovieData.API_KEY_THEMOVIEDB;
-
-
 
     @Override
     protected Void doInBackground(String... params) {
@@ -144,7 +139,6 @@ public class FetchMovieTrailerAndReview extends AsyncTask<String, Void, Void> {
         return urls;
     }
 
-
     private void processJsonStrArr(String[] jsonStr) throws JSONException {
         this.getTrailerDataFromJson(jsonStr[0]);
         this.getReviewDataFromJson(jsonStr[1]);
@@ -183,22 +177,16 @@ public class FetchMovieTrailerAndReview extends AsyncTask<String, Void, Void> {
             String content = movie.getString("content");
             String url = movie.getString("url");
 
-            reviews.add(author + "\n" + content + "\n=======================");
+            reviews.add(author + "\n" + content);
         }
-
-
     }
-
 
     @Override
     protected void onPostExecute(Void aVoid) {
-
         movie.setTrailers(trailers);
-//        movie.setReviews((String[]) reviews.toArray());
 
-        detailActivityFragment.updateTrailerListView(trailers);
-        detailActivityFragment.updateReviewListView(reviews);
-
+        detailFragment.updateTrailerListView(trailers);
+        detailFragment.updateReviewListView(reviews);
     }
 
 }//End of class

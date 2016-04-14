@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,23 +6,18 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.bigfacestusio.popularmovies.MainActivityFragment"
+    tools:context=".MainFragment"
     tools:showIn="@layout/activity_main">
-
 
     <GridView
         android:id="@+id/movie_gridview"
-        android:minHeight="?android:attr/listPreferredItemHeight"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
 
-        android:numColumns="auto_fit"
+        android:horizontalSpacing="0dp"
+        android:listSelector="@drawable/grid_view_selector"
+        android:numColumns="2"
         android:stretchMode="columnWidth"
+        android:verticalSpacing="0dp" />
 
-        android:listSelector="@null"
-        />
-
-
-
-
-</RelativeLayout>
+</LinearLayout>

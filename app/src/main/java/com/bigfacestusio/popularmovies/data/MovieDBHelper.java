@@ -10,7 +10,7 @@ public class MovieDBHelper extends SQLiteOpenHelper {
     private static final String LOG_TAG = MovieDBHelper.class.getSimpleName();
 
     public static final String DB_NAME = "movies.db";
-    public static final int DB_VERSION = 4;
+    public static final int DB_VERSION = 6;
 
     public MovieDBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -27,8 +27,10 @@ public class MovieDBHelper extends SQLiteOpenHelper {
                 MovieContract.MovieDBColumns.COL_OVERVIEW + " TEXT , " +
                 MovieContract.MovieDBColumns.COL_RELEASE_DATE + " TEXT , " +
                 MovieContract.MovieDBColumns.COL_POPULARITY + " TEXT , " +
-                MovieContract.MovieDBColumns.COL_TRAILERS + " TEXT , " +
-                MovieContract.MovieDBColumns.COL_IS_FAVORITE + " INTEGER );";
+                MovieContract.MovieDBColumns.COL_VOTE_AVERAGE + " TEXT );";
+//                MovieContract.MovieDBColumns.COL_TRAILERS + " TEXT , " +
+//                MovieContract.MovieDBColumns.COL_IS_FAVORITE + " INTEGER " +
+
 
 //        final String SQL_CREATE_MOVIE_TABLE = "CREATE TABLE " + MovieContract.MovieDBColumns.TABLE_NAME + "(" +
 //                MovieContract.MovieDBColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +

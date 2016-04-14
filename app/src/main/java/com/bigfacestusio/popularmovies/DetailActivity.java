@@ -1,6 +1,7 @@
 package com.bigfacestusio.popularmovies;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -9,26 +10,33 @@ import android.widget.ToggleButton;
 
 import com.bigfacestusio.popularmovies.data.MovieContract;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity extends AppCompatActivity implements IButtonClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Intent mIntent = getIntent();
+        Movie m = mIntent.getParcelableExtra(Movie.KEY_MID);
+
+        DetailFragment df = (DetailFragment) getFragmentManager().findFragmentById(R.id.fragment_detail);
+        df.setMoive(m);
     }
 
 
     /**
      * Handle toggle button click event
+     *
      * @param view
      */
-    public void handleFavButtonClick(View view) {
-        Movie mm = (Movie) getIntent().getParcelableExtra(Movie.KEY_MID);
+    @Override
+    public void onFavButtonClicked(View view) {
+        Movie mm = getIntent().getParcelableExtra(Movie.KEY_MID);
 
         ContentValues values = new ContentValues();
         values.put(MovieContract.MovieDBColumns.COL_MID, mm.getMId());
@@ -37,13 +45,8 @@ public class DetailActivity extends AppCompatActivity {
         values.put(MovieContract.MovieDBColumns.COL_OVERVIEW, mm.getOverview());
         values.put(MovieContract.MovieDBColumns.COL_RELEASE_DATE, mm.getReleaseDate());
         values.put(MovieContract.MovieDBColumns.COL_POPULARITY, mm.getPopularity());
-        values.put(MovieContract.MovieDBColumns.COL_TRAILERS, "--");
-        values.put(MovieContract.MovieDBColumns.COL_IS_FAVORITE, 0);
 
-
-        ToggleButton cb = (ToggleButton) view.findViewById(R.id.togglebutton_favorite);
-
-
+        ToggleButton cb = (ToggleButton) view;
         if (cb.isChecked()) {
             this.getContentResolver().insert(MovieContract.MovieDBColumns.CONTENT_URI, values);
         } else {
